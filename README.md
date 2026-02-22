@@ -11,9 +11,7 @@
 
 ## 📌 Overview
 
-ThreatNet is a **collaborative intelligence hub** designed for cybersecurity professionals — including SOC analysts, CTI researchers, MDR teams, and independent investigators. 
-
-In the modern landscape, security teams must move from reactive incident response to proactive threat mitigation. ThreatNet enables this shift by centralizing structured intelligence reporting, search, and knowledge correlation within a single, secure terminal.
+ThreatNet is a **collaborative intelligence hub** designed for cybersecurity professionals — including SOC analysts, CTI researchers, MDR teams, and independent investigators.
 
 ### **Key Capabilities:**
 * **🔍 Indicator Sharing:** Submit and search structured Indicators of Compromise (IOCs) like IPs, Domains, and Hashes.
