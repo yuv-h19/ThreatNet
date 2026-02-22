@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>ThreatNet</title>
+    <link rel="icon" type="image/x-icon" href="../Images/favicon.ico">
+    <link rel="stylesheet" href="../CSS/report-campaign.css">
+</head>
+<body>
+    
+<header>
+  <div class="container">
+    <div class="topbar">
+      <div class="brand">
+        <a href="http://vmedu444.mtacloud.co.il:3000"><img src="../Images/logo.jpeg" alt="ThreatNet Logo" class="logo-img"></a>
+      </div>
+
+      <nav aria-label="Primary navigation">
+        <ul class="navlinks">
+          <li><a href="http://vmedu444.mtacloud.co.il:3000/">Dashboard</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropbtn">IOC</a>
+              <ul class="dropdown-content">
+                <li><a href="http://vmedu444.mtacloud.co.il:3000/add-ioc">Report IOC</a></li>
+                <li><a href="http://vmedu444.mtacloud.co.il:3000/search-ioc">Search IOC</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropbtn">CVE</a>
+              <ul class="dropdown-content">
+                <li><a href="http://vmedu444.mtacloud.co.il:3000/add-cve">Report CVE</a></li>
+                <li><a href="http://vmedu444.mtacloud.co.il:3000/search-cves">CVE Database</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropbtn">APT</a>
+              <ul class="dropdown-content">
+                <li><a href="http://vmedu444.mtacloud.co.il:3000/add-apt">Report APT</a></li>
+                <li><a href="http://vmedu444.mtacloud.co.il:3000/attack-groups">APT Database</a></li>
+              </ul>
+            </li>
+            <li><a href="http://vmedu444.mtacloud.co.il:3000/attack-techniques">Techniques</a></li>            
+            <li><a href="https://yuvalho2.mtacloud.co.il/ThreatNet/Includes/report-campaign.html">Report Campaign</a></li>            
+        </ul>
+      </nav>
+  </div>
+ </div>
+</header>
+
+<main> 
+  <div class="form-title">    
+    <h1>> Report_New_Campaign</h1>
+    <p>Document and share intelligence about new attack campaigns</p>
+  </div>
+
+  <form action="submitCampaign.php" method="post" onsubmit="return validateForm();">
+    <fieldset>
+      <legend class="legend-title">Campaign Details</legend>
+      <p>Provide comprehensive information <span id="short"> about the observed attack campaign</span></p>
+
+      <label for="campaignName"> Campaign Name <span>*</span> </label>
+      <input type="text" id="campaignName" name="campaignName" placeholder="e.g. Operation Silent Storm" maxlength="40" required />
+
+      <div class="two-columns">
+        <div> 
+          <label for="attackVector"> Attack Vector <span>*</span> </label>
+          <select id="attackVector" name="attackVector" required>
+            <option value="">Select attack vector</option>
+            <option value="phishing">Phishing</option>
+            <option value="malware">Malware</option>
+            <option value="ransomware">Ransomware</option>
+          </select>
+        </div>
+        <div>   
+          <label for="severity"> Severity (1–10) <span>*</span> </label>
+          <input type="number" id="severity" name="severity" placeholder="Enter severity level" required>
+        </div>
+      </div> 
+
+      <label for="targetSector"> Target Sector </label>
+      <input type="text" id="targetSector" name="targetSector" placeholder="e.g. Healthcare or Government">
+
+      <div class="two-columns">
+        <div>
+          <label for="firstObserved"> First Observed Date <span>*</span> </label>
+          <input type="date" id="firstObserved" name="firstObserved">
+        </div>
+        <div>
+          <label for="targetCountry">Target Country Code <span>*</span> </label>
+          <input type="text" id="targetCountry" name="targetCountry" placeholder="e.g. US or IL" >
+        </div>
+      </div>
+
+      <label for="description"> Campaign Description </label>
+      <textarea id="description" name="description" rows="5" placeholder="Detailed TTP description..."></textarea>
+    </fieldset>
+
+    <div class="form-actions">
+      <button type="submit" class="cyber-btn">Submit Campaign</button>
+      <button type="reset" class="btn-reset">Reset</button>
+    </div>
+  </form>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <span class="brand-name">ThreatNet</span>
+        <span class="footer-year">© 2026</span>
+      </div>
+      <ul class="footer-links">
+        <li><a href="#" title="Link Not Implemented">Privacy Policy</a></li>
+        <li><a href="#" title="Link Not Implemented">Contact Support</a></li>
+      </ul>
+    </div>
+    <hr class="footer-line" />
+    <div class="footer-bottom">
+      <div>Secure CTI Platform • TLP:AMBER</div>
+      <div>Designed for Cybersecurity teams</div>
+    </div>
+  </div>
+</footer>
+
+<script src="../JS/reportCampaign.js"></script>
+</body>
+</html>
