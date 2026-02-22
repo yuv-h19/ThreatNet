@@ -1,0 +1,104 @@
+<%- include('../includes/head.ejs') %>
+<link rel="stylesheet" href="/css/add-apt.css">
+</head>
+
+<body>
+<%- include('../includes/menu.ejs') %>
+
+<section class="add-apt-page">
+
+  <div class="section-header">
+    <h2>> REPORT_APT</h2>
+    <p>Document technical details about advanced persistent threat groups</p>
+  </div>
+  
+  <section class="apt-split-layout">
+    <section class="apt-form-section">
+      <form action="/add-apt" method="POST">
+        <h3 class="form-subsection-title">Identification</h3>
+
+        <div class="form-group">
+          <label for="apt_name">APT Name <span>*</span></label>
+          <input type="text" name="apt_name" id="apt_name" class="cyber-input" placeholder="e.g. APT29, Cozy Bear, Lazarus Group, SaltTyphoon" required>
+        </div>
+
+        <div class="form-group">
+          <label for="origin_country">Attributed Origin <span>*</span></label>
+          <input type="text" name="origin_country" id="origin_country" class="cyber-input" placeholder="e.g. China, Russia, Unknown" required>
+        </div>
+
+        <h3 class="form-subsection-title">Classification</h3>
+        <div class="form-row">
+          <div class="form-group form-col">
+            <label for="actor_type">Actor Type</label>
+            <select name="actor_type" id="actor_type" class="cyber-input">
+              <option value="Nation-State">Nation-State</option>
+              <option value="Cybercrime">Cybercrime</option>
+              <option value="Hacktivist">Hacktivist</option>
+              <option value="Terrorist">Terrorist Group</option>
+            </select>
+          </div>
+
+          <div class="form-group form-col">
+            <label for="confidence_level">Attribution Confidence</label>
+            <select name="confidence_level" id="confidence_level" class="cyber-input">
+              <option value="High">High (Confirmed)</option>
+              <option value="Medium">Medium (Probable)</option>
+              <option value="Low">Low (Possible)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="primary_motivation">Primary Motivation</label>
+          <select name="primary_motivation" id="primary_motivation" class="cyber-input">
+            <option value="Espionage">Espionage (Intel Gathering)</option>
+            <option value="Financial">Financial Gain</option>
+            <option value="Sabotage">Sabotage / Destruction</option>
+            <option value="Influence">Influence Operations</option>
+          </select>
+        </div>
+
+        <h3 class="form-subsection-title">Targeting Profile</h3>
+        <div class="form-group">
+          <label for="target_sectors">Targeted Sectors & Verticals</label>
+          <textarea name="target_sectors" id="target_sectors" rows="4" class="cyber-input" placeholder="List known targeted industries..."></textarea>
+        </div>
+
+        <div class="form-footer">
+          <button type="submit" class="cyber-btn cyber-btn-full">Report</button>
+        </div>
+      </form>
+    </section>
+
+    <aside class="apt-info-panel">
+      <header>
+        <h3><span class="info-icon">&#9432;</span> Analyst Guidelines</h3>
+      </header>
+      <br>   
+      <p>Ensure all data adheres to the TLP:AMBER protocol before submission.</p>
+      <br>
+      <section class="info-panel-content">
+        <article class="info-box">
+          <strong>Confidence Levels:</strong>
+          <ul>
+            <li>High: Multiple verified sources.</li>
+            <li>Medium: Single strong source / multiple weak.</li>
+            <li>Low: Unverified / initial indicators.</li>
+          </ul>
+        </article>
+
+        <article class="info-box">
+          <strong>Naming Convention:</strong>
+          <p>Use standard vendor designators if available (e.g., CrowdStrike name / Mandiant name).</p>
+        </article>
+      </section>
+
+      <footer class="internal-use-badge">
+        <div class="internal-use-text">INTERNAL USE ONLY</div>
+      </footer>
+    </aside>
+  </section>
+</section>
+
+<%- include('../includes/end.ejs') %>

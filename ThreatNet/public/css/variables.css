@@ -1,0 +1,28 @@
+:root {
+  /* --- Surfaces & Backgrounds --- */
+  --bg-main: #0d1117;      
+  --bg-header: #0f172a;      
+  --bg-card:  linear-gradient(180deg, #0f172a, #0b1220); 
+  --bg-input: #020617;
+  --bg-panel: rgba(30, 41, 59, 0.6);
+
+  /* --- Cyber-theme colors --- */
+  --cyber-blue: #38bdf8;
+  --cyber-cyan: #22d3ee;    
+  --cyber-cyan-dark: #0891b2;  
+  --cyber-glow: rgba(34, 211, 238, 0.2); 
+
+  /* --- Severity Colors (CVSS Standard) --- */
+  --status-critical: #ef4444;
+  --status-high: #f97316;
+  --status-medium: #eab308;
+  --status-low: #22c55e;
+
+  /* --- Typography & Borders --- */
+  --font-main: 'Segoe UI', system-ui, sans-serif; /* Primary UI font */
+  --font-mono: 'Courier New', Courier, monospace; /* Technical/Shell style */
+  --border-dim: #1e293b; 
+  --radius-lg: 14px;        
+  --radius-md: 8px;        
+}
+

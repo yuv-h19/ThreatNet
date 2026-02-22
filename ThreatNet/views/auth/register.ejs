@@ -1,0 +1,81 @@
+<%- include('../includes/head.ejs') %>
+<link rel="stylesheet" href="/css/auth-forms.css">
+</head>
+<body>
+<%- include('../includes/menu.ejs') %>
+
+<div class="auth-header">
+<h1>Registration</h1>
+<p>Access the system to report and analyze threats</p>
+</div>
+
+<section class="auth-container">
+    <form method="post" action="/save-user" class="register-fr">
+        
+        <div class="two-columns">
+            <div class="form-group">
+                <label for="username">Username <span>*</span></label>
+                <input type="text" id="username" name="username" placeholder="Enter a username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password <span>*</span></label>
+                <input type="password" id="password" name="password" placeholder="••••••••" required>
+            </div>
+        </div>
+
+        <div class="two-columns">
+            <div class="form-group">
+                <label for="first_name">First Name <span>*</span></label>
+                <input type="text" id="first_name" name="first_name" placeholder="Enter your first name" required>
+            </div>
+            <div class="form-group">
+                <label for="last_name">Last Name <span>*</span></label>
+                <input type="text" id="last_name" name="last_name" placeholder="Enter your last name" required>
+            </div>
+        </div>
+
+        <div class="two-columns">
+            <div class="form-group">
+                <label for="email">Email Address <span>*</span></label>
+                <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone Contact</label>
+                <input type="text" id="phone" name="phone" placeholder="Enter your phone number">
+            </div>
+        </div>
+
+        <div class="two-columns">
+            <div class="form-group">
+                <label for="company">Company Name</label>
+                <input type="text" id="company" name="company" placeholder="Enter your company name">
+            </div>
+            <div class="form-group">
+                <label for="job_role">Current Job Role</label>
+                <input type="text" id="job_role" name="job_role" placeholder="Enter your job role"> 
+            </div>
+        </div>
+
+        <div class="two-columns">
+            <div class="form-group">
+                <label for="country">Location (Country)</label>
+                <input type="text" id="country" name="country" placeholder="Enter your country">
+            </div>
+            <div class="form-group">
+                <label for="years_of_experience">Experience (Years)</label>
+                <input type="number" id="years_of_experience" name="years_of_experience" min="0" placeholder="Min. 0 Years">
+            </div>
+        </div>
+
+        <footer class="form-actions" role="group">
+            <button type="submit" class="primary-btn">Create Account</button>
+            <button type="reset" class="secondary-btn">Clear Form</button>
+        </footer>
+        
+        <% if (error) { %> 
+            <span class="err" role="alert">[!] SECURITY_ERROR: <%= error %></span> 
+        <% } %>
+    </form>
+</section>
+
+<%- include('../includes/end.ejs') %>

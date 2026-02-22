@@ -1,0 +1,86 @@
+<%- include('../includes/head.ejs') %>
+    <link rel="stylesheet" href="/css/search-cve.css">
+</head>
+<body>
+<%- include('../includes/menu.ejs') %>
+
+<div class="cve-database-container">
+    <div class="database-title-area">
+        <div class="title-text">
+            <h1>> CVE_Database</h1>
+            <p>Search and manage Common Vulnerabilities and Exposures</p>
+        </div>
+        <a href="/add-cve" class="btn-report">+ Report New CVE</a>
+    </div>
+
+    <div class="stats-grid">
+        <div class="stat-card">
+            <div class="stat-info">
+                <span class="stat-label">Total CVEs</span>
+                <span class="stat-value"><%= stats.total %></span>
+            </div>
+            <div class="stat-icon cyan">🛡️</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-info">
+                <span class="stat-label">Critical</span>
+                <span class="stat-value red"><%= stats.critical %></span>
+            </div>
+            <div class="stat-icon red">⚠️</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-info">
+                <span class="stat-label">High</span>
+                <span class="stat-value orange"><%= stats.high %></span>
+            </div>
+            <div class="stat-icon orange">⚡</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-info">
+                <span class="stat-label">Medium</span>
+                <span class="stat-value yellow"><%= stats.medium %></span>
+            </div>
+            <div class="stat-icon yellow">🛡️</div>
+        </div>
+    </div>
+
+    <div class="search-filter-section">
+        <h4 class="search-prod">Search by Product Name</h4>
+        <form action="/search-cves" method="GET" class="search-flex-container">
+            <div class="search-input-wrapper">
+                <input type="text" name="productName" placeholder="🔍 e.g. Apache or Windows" value="<%= typeof query !== 'undefined' ? query : '' %>">
+            </div>
+            <button type="submit" class="btn-search">Search Database</button>
+        </form>
+    </div>
+
+    <div class="results-layout">
+        <% if (cves.length > 0) { %>
+            <div class="cve-cards-grid">
+                <% for (let cve of cves) { %>
+                    <div class="cve-item-card">
+                        <div class="item-header">
+                            <span class="cve-id-label"><%= cve.cve_id %></span>
+                            <span class="cvss-tag <%= cve.cvss_score >= 9 ? 'critical' : (cve.cvss_score >= 7 ? 'high' : 'medium') %>">
+                                CVSS: <%= cve.cvss_score %>
+                            </span>
+                        </div>
+                        <h3><%= cve.vulnerability_name %></h3>
+                        <div class="item-body">
+                            <p><strong>Affected Product:</strong> <%= cve.affected_product %></p>
+                            <p><strong>Attack Vector:</strong> <%= cve.attack_vector %></p>
+                        </div>
+                    </div>
+                <% } %>
+            </div>
+        <% } else { %>
+            <div class="empty-state">
+                <div class="empty-icon">🛡️</div>
+                <h2>No CVEs Found</h2>
+                <p>Try searching for a different product name</p>
+            </div>
+        <% } %>
+    </div>
+</div>
+
+<%- include('../includes/end.ejs') %>

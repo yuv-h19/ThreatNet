@@ -1,0 +1,91 @@
+<%- include('../includes/head.ejs') %>
+<link rel="stylesheet" href="/css/attack-techniques.css">
+</head>
+<body>
+
+<%- include('../includes/menu.ejs') %>
+
+  <header class="page-header">
+    <h1>Attack Techniques</h1>
+    <p>Comprehensive catalog of attack vectors and techniques used by threat actors</p>
+  </header>
+
+  <section class="techniques-grid" aria-label="Attack techniques catalog">
+
+    <a href="/phishing-details" class="tech-card-link" aria-label="Open Phishing details">
+      <article class="tech-card">
+        <div class="card-header">
+          <div class="icon-box blue-icon" aria-hidden="true">✉️</div>
+          <span class="badge high">High</span>
+        </div>
+        <h3>Phishing</h3>
+        <p>Social engineering attack attempting to steal credentials or install malware</p>
+        <div class="card-footer">
+          <span class="tag">🛡️ Social Engineering</span>
+        </div>
+      </article>
+    </a>
+
+    <article class="tech-card" title="Link Not Implemented" aria-label="Malware Deployment (not implemented)">
+      <div class="card-header">
+        <div class="icon-box blue-icon" aria-hidden="true">🐞</div>
+        <span class="badge critical">Critical</span>
+      </div>
+      <h3>Malware Deployment</h3>
+      <p>Installation of malicious software to compromise systems</p>
+      <div class="card-footer">
+        <span class="tag">🛡️ Execution</span>
+      </div>
+    </article>
+    
+    <article class="tech-card" title="Link Not Implemented" aria-label="Ransomware (not implemented)">
+      <div class="card-header">
+        <div class="icon-box blue-icon" aria-hidden="true">🔒</div>
+        <span class="badge critical">Critical</span>
+      </div>
+      <h3>Ransomware</h3>
+      <p>Encryption of data with ransom demands</p>
+      <div class="card-footer">
+        <span class="tag">🛡️ Impact</span>
+      </div>
+    </article>
+    
+    <article class="tech-card" title="Link Not Implemented" aria-label="DDoS Attack (not implemented)">
+      <div class="card-header">
+        <div class="icon-box blue-icon" aria-hidden="true">⚡</div>
+        <span class="badge high">High</span>
+      </div>
+      <h3>DDoS Attack</h3>
+      <p>Distributed denial of service overwhelming target systems</p>
+      <div class="card-footer">
+        <span class="tag">🛡️ Impact</span>
+      </div>
+    </article>
+
+    <article class="tech-card" title="Link Not Implemented" aria-label="Advanced Persistent Threat (not implemented)">
+      <div class="card-header">
+        <div class="icon-box blue-icon" aria-hidden="true">🔗</div>
+        <span class="badge critical">Critical</span>
+      </div>
+      <h3>Advanced Persistent Threat</h3>
+      <p>Long-term targeted attack by sophisticated actors</p>
+      <div class="card-footer">
+        <span class="tag">🛡️ Persistence</span>
+      </div>
+    </article>
+    
+    <article class="tech-card" title="Link Not Implemented" aria-label="Social Engineering (not implemented)">
+      <div class="card-header">
+        <div class="icon-box blue-icon" aria-hidden="true">👥</div>
+        <span class="badge medium">Medium</span>
+      </div>
+      <h3>Social Engineering</h3>
+      <p>Manipulation of individuals to divulge confidential information</p>
+      <div class="card-footer">
+        <span class="tag">🛡️ Initial Access</span>
+      </div>
+    </article>
+
+  </section>
+
+<%- include('../includes/end.ejs') %>

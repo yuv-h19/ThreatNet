@@ -1,0 +1,27 @@
+<%- include('includes/head.ejs') %>
+    <link rel="stylesheet" href="/css/error.css">
+</head>
+<body>
+<%- include('includes/menu.ejs') %>
+
+<main class="error-page-container">
+    <div class="error-card">
+        <span class="error-icon">⚠️</span>
+        <h1><%= errorMessage %></h1>
+        <p>Something went wrong during the process. Please check the details below:</p>
+
+        <% if (errorDetail) { %>
+            <div class="error-detail-box">
+                <strong>Technical Error:</strong><br>
+                <%= errorDetail %>
+            </div>
+        <% } %>
+
+        <div class="error-actions">
+            <a href="javascript:history.back()" class="btn-error-back">Try Again</a>
+            <a href="/" class="btn-error-home">Back to Home</a>
+        </div>
+    </div>
+</main>
+
+<%- include('includes/end.ejs') %>

@@ -1,0 +1,108 @@
+<%- include('../includes/head.ejs') %>
+<link rel="stylesheet" href="/css/attack-groups.css">
+</head>
+<body>
+<%- include('../includes/menu.ejs') %>
+
+<section class="attack-groups-page">
+
+  <div class="gallery-header">
+    <div class="gallery-text">
+      <h1 class="gallery-title">KNOWN THREAT ACTORS</h1>
+      <p class="gallery-subtitle">Global Intelligence Database</p>
+    </div>
+  </div>
+  
+  <section class="apt-grid">  
+
+    <% if (groups.length > 0) { %>
+      <% groups.forEach(function(group) { %>
+        <% 
+           /* Image and Alias Logic: Identical to original functionality */
+           const normalize = (s) => (s || '').toLowerCase().replace(/[^a-z0-9]/g, '');
+           const key = normalize(group.apt_name);
+
+           const aliasMap = {
+             "apt29": "apt29", "cozybear": "apt29",
+             "apt28": "apt28", "fancybear": "apt28",
+             "apt31": "apt31", "zirconium": "apt31",
+             "apt34": "apt34", "oilrig": "apt34",
+             "apt40": "apt40", "leviathan": "apt40",
+             "lazarus": "lazarusgroup", "lazarusgroup": "lazarusgroup",
+             "atp41": "atp41", "doubledragon": "atp41"
+           };
+
+           const imgBase = aliasMap[key] || key;
+
+           const confidenceClass =
+             group.confidence_level === 'High' ? 'is-high' :
+             group.confidence_level === 'Low' ? 'is-low' : 'is-medium';
+        %>
+
+        <button
+          type="button"
+          class="apt-card"
+          data-bg-webp="/images/apt_img/<%= imgBase %>.webp"
+          data-bg-jpg="/images/apt_img/<%= imgBase %>.jpg"
+          data-bg-default="/images/apt_img/default.webp"
+          data-name="<%= group.apt_name %>"
+          data-type="<%= group.actor_type %>"
+          data-origin="<%= group.origin_country %>"
+          data-confidence="<%= group.confidence_level %>"
+          data-motivation="<%= group.primary_motivation %>"
+          data-sectors="<%= group.target_sectors %>"
+          aria-label="Open details for <%= group.apt_name %>"
+        >
+          <div class="card-overlay">
+            <h3 class="card-title"><%= group.apt_name %></h3>
+            <div class="card-subtitle">
+              <span class="confidence-dot <%= confidenceClass %>">●</span>
+              <span><%= group.origin_country %></span>
+            </div>
+          </div>
+        </button>
+
+      <% }); %>
+    <% } else { %>
+      <p class="empty-state">No threat actors found in the database yet.</p>
+    <% } %>
+
+  </section>
+
+  <section id="aptModal" class="modal-overlay" aria-hidden="true">
+    <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <header class="modal-header">
+        <h2 id="modalTitle" class="modal-title">APT_NAME</h2>
+        <button class="close-modal" type="button" aria-label="Close modal">&times;</button>
+      </header>
+
+      <div class="modal-body">
+        <div>
+          <span class="data-label">Actor Type</span>
+          <span id="modalType" class="data-value">...</span>
+        </div>
+        <div>
+          <span class="data-label">Origin Country</span>
+          <span id="modalOrigin" class="data-value">...</span>
+        </div>
+        <div>
+          <span class="data-label">Confidence Level</span>
+          <span id="modalConfidence" class="data-value">...</span>
+        </div>
+        <div>
+          <span class="data-label">Primary Motivation</span>
+          <span id="modalMotivation" class="data-value">...</span>
+        </div>
+        <div class="full-width">
+          <span class="data-label">Target Sectors</span>
+          <div id="modalSectors" class="data-value sectors-value">...</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</section>
+
+<script src="/js/aptCards.js"></script>
+<%- include('../includes/end.ejs') %>
+</body>

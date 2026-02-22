@@ -1,0 +1,234 @@
+<%- include('includes/head.ejs') %>
+<link rel="stylesheet" href="/css/index.css">
+</head>
+<body>
+  <%- include('includes/menu.ejs') %>
+
+  <!-- Gamification popup: shown after successful actions (e.g., add APT) to confirm save + points -->
+  <div id="points-popup" class="gamification-popup">
+    <div class="popup-content">
+      <span class="success-message">Saved Successfully!</span>
+      <span class="points-amount">+10</span>
+      <span class="points-label">POINTS</span>
+    </div>
+  </div>
+
+  <!--  Dashboard Section  -->
+  <section class="dashboard-hero container">
+    <h1>Threat Intelligence Dashboard</h1>
+    <p>Real-time overview of the current threat landscape.</p>
+  </section>
+
+  <!--  Top Statistics Cards  -->
+  <section class="cards container">
+    <!-- Attack Groups Card -->
+    <article class="card blue-card">
+      <div class="card-header">
+        <h3>Attack Groups</h3>
+        <div class="icon-box">👥</div>
+      </div>
+      <!-- Dynamic value injected from server (EJS) -->
+      <div class="number"><%= attackGroupsCount %> </div>
+      <div class="note">Unique threat actors</div>
+    </article>
+
+    <!-- IOCs Card -->
+    <article class="card red-card">
+      <div class="card-header">
+        <h3>IOCs</h3>
+        <div class="icon-box">⚠️</div>
+      </div>
+      <!-- Dynamic value injected from server (EJS) -->
+      <div class="number"><%= iocCount %> </div>
+      <div class="note">Total indicators</div>
+    </article>
+
+    <!-- CVEs Card -->
+    <article class="card purple-card">
+      <div class="card-header">
+        <h3>CVEs</h3>
+        <div class="icon-box">📄</div>
+      </div>
+      <!-- Dynamic value injected from server (EJS) -->
+      <div class="number"><%= cveCount %> </div>
+      <div class="note">Vulnerabilities tracked</div>
+    </article>
+
+    <!-- Campaigns Card -->
+    <article class="card orange-card">
+      <div class="card-header">
+        <h3>Campaigns</h3>
+        <div class="icon-box">🔥</div>
+      </div>
+      <div class="number">100</div>
+      <div class="note">Active campaigns</div>
+    </article>
+  </section>
+
+  <!-- Analytics Section (Charts + History)  -->
+  <section class="analytics-section container">
+    <article class="analytics-card">
+      <h2>Attack Vectors Distribution</h2>
+
+      <div class="vector-item">
+        <div class="vector-info">
+          <span>Phishing</span>
+          <span class="percent-text">35%</span>
+        </div>
+        <div class="vector-bar">
+          <div class="v-fill phish-bg w-35"></div>
+        </div>
+      </div>
+
+      <div class="vector-item">
+        <div class="vector-info">
+          <span>Ransomware</span>
+          <span class="percent-text">25%</span>
+        </div>
+        <div class="vector-bar">
+          <div class="v-fill ran-bg w-25"></div>
+        </div>
+      </div>
+
+      <div class="vector-item">
+        <div class="vector-info">
+          <span>Malware</span>
+          <span class="percent-text">18%</span>
+        </div>
+        <div class="vector-bar">
+          <div class="v-fill mal-bg w-18"></div>
+        </div>
+      </div>
+
+      <div class="vector-item">
+        <div class="vector-info">
+          <span>DDoS</span>
+          <span class="percent-text">12%</span>
+        </div>
+        <div class="vector-bar">
+          <div class="v-fill ddos-bg w-12"></div>
+        </div>
+      </div>
+
+      <div class="vector-item">
+        <div class="vector-info">
+          <span>Social Engineering</span>
+          <span class="percent-text">10%</span>
+        </div>
+        <div class="vector-bar">
+          <div class="v-fill soc-bg w-10"></div>
+        </div>
+      </div>
+    </article>
+
+    <!-- History Card -->
+    <article class="analytics-card history-card">
+      <h2>History</h2>
+      <!-- List is populated dynamically by history.js -->
+      <ul id="historyList"></ul>
+    </article>
+  </section>
+
+  <!--  Video -->
+  <section class="intro-section container">
+    <article class="intro-card">
+      <h2>Discover ThreatNet</h2>
+      <p>An advanced Cyber Threat Intelligence platform built for modern SOC teams</p>
+      <div class="video-box">
+        <video controls class="intro-video" poster="/images/video-thumbnail.png">
+          <source src="/videos/threatnet-intro.mp4" type="video/mp4">
+        </video>
+      </div>
+    </article>
+  </section>
+
+  <!--  Global Heatmap Section  -->
+  <section class="heatmap-section container">
+    <article class="heatmap-card">
+      <h2>Global Threat Heatmap</h2>
+      <div class="heatmap-gif-wrapper">
+        <img
+          src="/images/norse-banks-cyberthreats.gif"
+          alt="Threat Heatmap"
+          class="heatmap-gif"
+        >
+      </div>
+    </article>
+  </section>
+
+  <!--  Cyber Risk Calculator Section  -->
+  <section class="risk-section container">
+    <div class="risk-card">
+      <h2>Cyber Risk Calculator</h2>
+      <p class="subtitle"> Calculate a comprehensive risk score for a reported cyber incident using a multi-factor assessment model. </p>
+
+      <!-- Inputs used by riskCalculator.js to compute a score -->
+      <div class="risk-grid">
+        <div class="form-group">
+          <label>
+            Asset Criticality (1-5)
+            <span class="info-icon">
+              ℹ
+              <span class="tooltip">
+                1 - Negligible <br>
+                2 - Low <br>
+                3 - Moderate <br>
+                4 - High <br>
+                5 - Critical (DC / Database / Production)
+              </span>
+            </span>
+          </label>
+          <input type="number" id="asset" min="1" max="5" step="1" value="1" required>
+        </div>
+
+        <div class="form-group">
+          <label>Affected Systems</label>
+          <input type="number" id="systems" min="1" max="1000000" step="1" placeholder="e.g. 25" value="1" required>
+        </div>
+
+        <div class="form-group">
+          <label>Privilege Gained</label>
+          <select id="privilege">
+            <option value="0" selected>None</option>
+            <option value="2">User</option>
+            <option value="4">Admin</option>
+            <option value="6">Domain Admin / Root</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Exposure Level</label>
+          <div class="radio-group">
+            <label><input type="radio" name="exposure" value="1" checked> Internal</label>
+            <label><input type="radio" name="exposure" value="2"> VPN</label>
+            <label><input type="radio" name="exposure" value="3"> Internet Facing</label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Data Sensitivity</label>
+          <select id="sensitivity">
+            <option value="1" selected>Public</option>
+            <option value="2">Internal</option>
+            <option value="3">Confidential</option>
+            <option value="4">PII</option>
+            <option value="5">Financial</option>
+          </select>
+        </div>
+
+        <div class="form-group button-group">
+          <button id="calculateBtn" class="calculate-btn"> Calculate Risk </button>
+        </div>
+      </div>
+
+      <!-- Result Output  -->
+      <div id="resultBox" class="result-box hidden"></div>
+    </div>
+  </section>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="/js/riskCalculator.js"></script>
+  <script src="/js/history.js"></script>
+  <script src="/js/addPoints.js"></script>
+
+  <%- include('includes/end.ejs') %>

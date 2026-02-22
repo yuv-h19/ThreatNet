@@ -1,0 +1,450 @@
+/* --- CSS RESET --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* --- GLOBAL LAYOUT --- */
+body {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  background-color: #0d1117;
+  color: #c9d1d9;
+  line-height: 1.6;
+}
+main {
+  padding: 60px 24px;
+}
+
+main h1 {
+  font-size: 2.2rem;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+main > p {
+  color: #9aa4b2;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 24px;
+}
+
+label span { color: #ef4444; }
+
+/* --- SHARED DESIGN COMPONENTS --- */
+
+/* Standardized shell-style headings used in report and add pages */
+.section-header h2, .report-title, .search-title {
+    font-family: var(--font-mono);
+    color: var(--cyber-blue);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-bottom: 2px solid var(--cyber-blue);
+    display: inline-block;
+    padding-bottom: 8px;
+    margin-bottom: 15px;
+}
+
+/* Global input fields */
+.cyber-input, input:not([type="checkbox"]):not([type="radio"]), select, textarea {
+    width: 100%;
+    background-color: var(--bg-input);
+    border: 1px solid var(--border-dim);
+    border-radius: var(--radius-md);
+    color: #cecfd2;
+    padding: 12px 14px;
+    transition: all 0.3s ease;
+}
+
+/* Global action buttons */
+.cyber-btn, .primary, .btn-primary, button[type="submit"] {
+    background-color: var(--cyber-cyan-dark);
+    color: #fff;
+    padding: 12px 24px;
+    border: none;
+    border-radius: var(--radius-md);
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.btn-reset {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-dim);
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.btn-reset:active, 
+.cyber-btn:active, 
+button[type="submit"]:active {
+  transform: translateY(1px) scale(0.98);
+  box-shadow: none;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+
+/* --- HEADER --- */
+header {
+  background: #0f172a;
+  border-bottom: 1px solid #30363d;
+  padding: 10px 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  margin-right: 50px;
+  flex-shrink: 0;
+}
+
+.logo-img {
+  height: 42px;
+  display: block;
+}
+
+.navlinks {
+  display: flex;
+  gap: 25px;
+  list-style: none;
+}
+
+.navlinks a {
+  text-decoration: none;
+  color: #8b949e;
+  font-size: 14px;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.navlinks a:hover {
+  color: #58a6ff;
+}
+
+/* --- USER ZONE (RIGHT SECTION IN HEADER) --- */
+.right {
+    margin-left: auto;
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.userbox {
+    text-align: right;
+    cursor: pointer;
+}
+
+.userbox.dropbtn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+}
+
+.userbox .role {
+    font-weight: 700;
+    color: #f0f6fc;
+    font-size: 14px;
+}
+
+.userbox .team {
+    font-size: 12px;
+    color: #8b949e;
+    margin-top: -2px;
+}
+
+.user-points {
+    font-size: 0.7rem;
+    color: #94a3b8;
+    margin-left: 6px;
+    font-weight: 500;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 2px 6px;
+    border-radius: 4px;
+    vertical-align: middle;
+}
+
+.userbox:hover .user-points {
+    color: #22d3ee;
+    background: rgba(34, 211, 238, 0.1);
+    transition: 0.3s;
+}
+
+.userbox.dropbtn:hover .role {
+    color: #58a6ff;
+    transition: color 0.3s;
+}
+
+.userbox.dropbtn::after {
+    display: none; 
+}
+
+/* --- DROPDOWN GENERAL LOGIC --- */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropbtn {
+    display: flex;
+    align-items: center;
+    gap: 8px; 
+}
+
+/* General Dropdown Arrow  */
+.dropbtn::after {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-right: 1.5px solid #8b949e; 
+    border-bottom: 1.5px solid #8b949e;
+    transform: rotate(45deg);
+    transition: transform 0.3s ease, border-color 0.3s;
+    margin-top: -3px;
+}
+
+.dropdown:hover .dropbtn::after {
+    border-color: #58a6ff;
+    transform: rotate(-135deg);
+    margin-top: 3px;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%; 
+    left: 0;   
+    background-color: #161b22;
+    min-width: 180px;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.5);
+    z-index: 1000;
+    list-style: none;
+    border: 1px solid #30363d;
+    border-radius: 6px;
+    padding: 8px 0;  
+    margin: 0;         
+}
+
+/* Positioning for the user specific menu to align right */
+.user-menu {
+    right: 0;
+    left: auto;
+    min-width: 140px;
+}
+
+.dropdown-content li a {
+    color: #8b949e;
+    padding: 10px 15px;
+    text-decoration: none;
+    display: block;
+    width: 100%;
+    font-size: 13px;
+    transition: background 0.2s, color 0.2s;
+}
+
+.dropdown-content li a.logout-btn {
+    color: #ef4444;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.dropdown-content li a:hover {
+    background-color: #21262d;
+    color: #58a6ff;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    color: #58a6ff;
+}
+
+/* --- NAVIGATION MENU --- */
+.navlinks li {
+    display: flex;
+    align-items: center;
+}
+
+/* --- 404 PAGE NOT FOUND --- */
+.not-found-container {
+    text-align: center;
+    padding: 100px 20px;
+}
+
+.error-code {
+    font-size: 120px;
+    color: #0891b2;
+    margin: 0;
+    line-height: 1;
+}
+
+.error-message {
+    font-size: 1.5rem;
+    color: #94a3b8;
+    margin-bottom: 30px;
+}
+
+.back-link {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #0891b2;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    font-weight: 500;
+}
+
+.back-link:hover {
+    background-color: #0e7490;
+    text-decoration: none;
+    color: white;
+}
+
+/* --- GAMIFICATION POPUP --- */
+.gamification-popup {
+    /* Floating popup for gamification feedback */
+    display: none; 
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: linear-gradient(135deg, #0891b2, #22d3ee); 
+    color: white;
+    padding: 25px 50px;
+    min-width: 220px;
+    border-radius: 12px; 
+    box-shadow: 0 15px 35px rgba(8, 145, 178, 0.4);
+    z-index: 1000;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.popup-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.success-message {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 4px;
+    opacity: 0.9;
+    letter-spacing: 0.5px;
+}
+
+.points-amount { 
+    font-size: 2.8rem; 
+    font-weight: 800; 
+    line-height: 1;
+}
+
+.points-label { 
+    font-size: 0.85rem; 
+    font-weight: 600;
+    letter-spacing: 2px; 
+    opacity: 0.95;
+}
+
+/* --- FOOTER --- */
+.footer {
+  margin-top: 60px;
+  padding: 40px 0;
+  border-top: 1px solid #30363d;
+  color: #8b949e;
+}
+
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-links {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+}
+
+.footer-links a {
+  color: #8b949e;
+  text-decoration: none;
+  font-size: 13px;
+}
+
+.footer-line {
+  border-top: 1px solid #30363d;
+  margin: 20px 0;
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+}
+  
+/* --- MEDIA QEUIRES FOR RESPONSIVENESS --- */
+
+@media (max-width: 900px) {
+  .right {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .topbar {
+    flex-wrap: wrap;
+  }
+
+  .brand {
+    width: 100%;
+    margin-right: 0;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+
+  nav {
+    width: 100%;
+  }
+
+  .navlinks {
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 10px;
+    padding: 0;
+  }
+
+  .right {
+    width: 100%;
+    justify-content: center;
+    margin-top: 10px;
+  }
+
+}

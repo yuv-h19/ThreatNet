@@ -1,0 +1,217 @@
+/* Page Container */
+.success-page {
+  max-width: 80%;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
+/* Success Header Section */
+.success-header {
+  text-align: center;
+  padding: 40px 30px;
+  border: 1px solid #1e293b;
+  border-radius: 14px;
+  background: linear-gradient(180deg, #0f172a, #0b1220);
+  margin-bottom: 40px;
+}
+
+.success-icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  border: 2px solid #22c55e;
+  color: #22c55e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+}
+
+.success-header h1 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+/* Campaign Info Text */
+.campaign-line {
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+.campaign-line span {
+  color: #38bdf8;
+  font-weight: 600;
+}
+
+.success-text {
+  color: #9aa4b2;
+}
+
+/* Timeline Section */
+.timeline-section {
+  background: linear-gradient(180deg, #0f172a, #0b1220);
+  border: 1px solid #1e293b;
+  border-radius: 14px;
+  padding: 30px;
+  margin-bottom: 40px;
+}
+
+.timeline-section h2 {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
+.timeline {
+  position: relative;
+  margin-left: 20px;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 8px;
+  top: 0;
+  width: 2px;
+  height: 100%;
+  background-color: #1e293b;
+}
+
+.timeline-step {
+  display: none; 
+  position: relative;
+  margin-bottom: 30px;
+  padding-left: 40px;
+}
+
+.timeline-step .dot {
+  position: absolute;
+  left: -2px;
+  top: 6px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: #0891b2;
+  box-shadow: 0 0 8px #0891b2;
+}
+
+.timeline-step .content h3 {
+  margin-bottom: 5px;
+  font-size: 1rem;
+}
+
+.timeline-step .content p {
+  font-size: 0.9rem;
+  color: #9aa4b2;
+}
+
+/* Recent Campaigns Section */
+.recent-campaigns {
+  background: linear-gradient(180deg, #0f172a, #0b1220);
+  border: 1px solid #1e293b;
+  border-radius: 14px;
+  padding: 24px;
+  margin-bottom: 40px;
+}
+
+.recent-campaigns h2 {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.campaign-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  border-radius: 10px;
+  background-color: #020617;
+  margin-bottom: 12px;
+}
+
+.campaign-info strong {
+  display: block;
+}
+
+.campaign-info span,
+.campaign-item time {
+  font-size: 0.85rem;
+  color: #9aa4b2;
+}
+
+/* Action Buttons */
+.success-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+
+.success-actions button {
+  padding: 12px 26px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  border: none;
+}
+
+.success-actions .primary {
+  background-color: #0891b2;
+  color: #ffffff;
+}
+
+.success-actions .secondary {
+  background-color: #ffffff;
+  color: #020617;
+}
+
+/* Responsive behavior */
+@media (max-width: 768px) {
+
+  .success-page {
+    max-width: 95%;
+  }
+
+  .success-header {
+    padding: 30px 20px;
+  }
+
+  .success-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .timeline {
+    margin-left: 10px;
+  }
+
+  .timeline::before {
+    left: 6px;
+  }
+
+  .timeline-step {
+    padding-left: 30px;
+  }
+
+  .timeline-step .dot {
+    width: 12px;
+    height: 12px;
+    left: -4px;
+  }
+
+  .timeline-step .content h3 {
+    font-size: 0.95rem;
+  }
+
+  .timeline-step .content p {
+    font-size: 0.8rem;
+  }
+
+  .success-actions {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .success-actions button {
+    width: 100%;
+  }
+
+}

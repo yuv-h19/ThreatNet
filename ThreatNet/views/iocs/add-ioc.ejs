@@ -1,0 +1,67 @@
+<%- include('../includes/head.ejs') %>
+<link rel="stylesheet" href="/css/ioc-forms.css">
+</head>
+<body>
+<%- include('../includes/menu.ejs') %>
+
+<div class="container">
+  <section class="report-container">
+    <h2 class="report-title">> IOC_REPORT</h2>
+    
+    <form action="/add-ioc" method="POST">
+      <div class="form-group">
+        <label for="indicator_value">Indicator Value <span>*</span></label>
+        <input type="text" name="indicator_value" id="indicator_value" class="cyber-input" placeholder="e.g. 192.168.1.100 or badsite.com" required>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="indicator_type">Indicator Type <span class="required">*</span></label>
+          <select name="indicator_type" id="indicator_type" class="cyber-input">
+            <option value="IP">IP Address</option>
+            <option value="Domain">Domain Name</option>
+            <option value="URL">URL</option>
+            <option value="Hash">File Hash (SHA256)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="threat_type">Threat Type <span>*</span></label>
+          <select name="threat_type" id="threat_type" class="cyber-input">
+            <option value="Malware">Malware</option>
+            <option value="Phishing">Phishing</option>
+            <option value="C2">Command & Control</option>
+            <option value="Ransomware">Ransomware</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="threat_family">Threat Family</label>
+          <input type="text" name="threat_family" id="threat_family" class="cyber-input" placeholder="e.g. Emotet or Lazarus">
+        </div>
+        <div class="form-group">
+          <label for="severity">Severity Level <span>*</span></label>
+          <select name="severity" id="severity" class="cyber-input">
+            <option value="Low">Low</option>
+            <option value="Medium">Medium</option>
+            <option value="High">High</option>
+            <option value="Critical">Critical</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="threat_description">Threat Description & Analysis</label>
+        <textarea name="threat_description" id="threat_description" rows="5" class="cyber-input" placeholder="Describe the indicator behavior and impact..."></textarea>
+      </div>
+
+      <div class="form-actions">
+        <button type="submit" class="cyber-btn">Report Indicator</button>
+        <button type="reset" class="btn-reset">Reset</button>      
+      </div>   
+    </form>
+  </section>
+</div>
+
+<%- include('../includes/end.ejs') %>

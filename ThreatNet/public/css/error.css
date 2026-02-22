@@ -1,0 +1,81 @@
+/* Page container */
+.error-page-container {
+    max-width: 800px;
+    margin: 60px auto;
+    text-align: center;
+    padding: 40px 20px;
+}
+/* Error details */
+.error-card {
+    background: linear-gradient(180deg, #0f172a, #0b1220); 
+    border: 1px solid #1e293b;
+    border-radius: 14px;
+    padding: 50px 30px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+}
+
+.error-icon {
+    font-size: 4rem;
+    color: var(--status-critical); 
+    margin-bottom: 20px;
+    display: block;
+}
+
+.error-card h1 {
+    color: #f8fafc;
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+    text-align: center; 
+}
+
+.error-card p {
+    color: #94a3b8;
+    margin-bottom: 30px;
+    font-size: 1.1rem;
+}
+
+.error-detail-box {
+    background-color: #020617; 
+    border: 1px solid var(--status-critical);
+    color: var(--status-critical);
+    padding: 15px;
+    border-radius: 8px;
+    font-family: 'Courier New', monospace;
+    font-size: 0.9rem;
+    text-align: left;
+    margin-bottom: 30px;
+    word-break: break-all;
+}
+
+/* Action buttons container */
+.error-actions {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.btn-error-back {
+    background-color: var(--cyber-cyan-dark);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.btn-error-back:hover {
+    background-color: var(--cyber-cyan);
+    box-shadow: 0 0 10px rgba(8, 145, 178, 0.4);
+}
+
+.btn-error-home {
+    background-color: #334155;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+}

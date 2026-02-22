@@ -1,0 +1,97 @@
+<%- include('../includes/head.ejs') %>
+<link rel="stylesheet" href="/css/phishing-details.css">
+</head>
+<body>
+
+<%- include('../includes/menu.ejs') %>
+
+<div id="wrapper">
+  <nav aria-label="Back navigation">
+    <a href="/attack-techniques" class="back">← Back to Techniques</a>
+  </nav>
+
+  <header class="detail-header">
+    <h1>Phishing</h1>
+    <span class="badge high">High Severity</span>
+  </header>
+
+  <p class="subtitle">Detailed analysis and mitigation strategies</p>
+
+  <section aria-label="Phishing description">
+    <article class="content-card description-card">
+      <h2 class="card-title section-title description-title">
+        <span class="icon" aria-hidden="true">🛡️</span> Description
+      </h2>
+      <p>
+        Phishing is a social engineering attack where attackers impersonate legitimate entities to trick victims into revealing sensitive information, clicking malicious links, or downloading malware. This is one of the most common initial access vectors used by threat actors.
+      </p>
+    </article>
+  </section>
+
+  <section aria-label="Attack flow">
+    <article class="content-card">
+      <h2 class="card-title section-title attack-flow-title">
+        <span class="icon" aria-hidden="true">⚠️</span> Attack Flow
+      </h2>
+
+      <ol class="flow-list">
+        <li class="flow-item">
+          <span class="step-num">1</span>
+          <span class="step-text"><strong>Reconnaissance:</strong> Attackers gather information about targets</span>
+        </li>
+        <li class="flow-item">
+          <span class="step-num">2</span>
+          <span class="step-text"><strong>Preparation:</strong> Craft convincing emails mimicking trusted sources</span>
+        </li>
+        <li class="flow-item">
+          <span class="step-num">3</span>
+          <span class="step-text"><strong>Delivery:</strong> Send phishing messages via email, SMS, or social media</span>
+        </li>
+        <li class="flow-item">
+          <span class="step-num">4</span>
+          <span class="step-text"><strong>Exploitation:</strong> Victims click malicious links or download attachments</span>
+        </li>
+        <li class="flow-item">
+          <span class="step-num">5</span>
+          <span class="step-text"><strong>Credential Harvesting:</strong> Capture login credentials on fake websites</span>
+        </li>
+        <li class="flow-item">
+          <span class="step-num">6</span>
+          <span class="step-text"><strong>Account Compromise:</strong> Use stolen credentials to access systems</span>
+        </li>
+      </ol>
+    </article>
+  </section>
+  
+  <section class="detail-grid" aria-label="Defensive and mitigation">
+    
+    <article class="content-card">
+      <h2 class="card-title section-title defensive-title">
+        <span class="icon" aria-hidden="true">🛡️</span> Defensive Techniques
+      </h2>
+      <ul class="check-list">
+        <li><span class="check-icon">✓</span> User awareness training and simulations</li>
+        <li><span class="check-icon">✓</span> Email filtering and anti-phishing solutions</li>
+        <li><span class="check-icon">✓</span> Multi-factor authentication (MFA) implementation</li>
+        <li><span class="check-icon">✓</span> Domain monitoring and brand protection services</li>
+        <li><span class="check-icon">✓</span> URL filtering and web proxy solutions</li>
+      </ul>
+    </article>
+
+    <article class="content-card">
+      <h2 class="card-title section-title mitigation-title">
+        <span class="icon" aria-hidden="true">✅</span> Mitigation Steps
+      </h2>
+      <ul class="check-list">
+        <li><span class="check-icon green">✓</span> Verify sender authenticity before clicking links</li>
+        <li><span class="check-icon green">✓</span> Check for HTTPS and legitimate domain names</li>
+        <li><span class="check-icon green">✓</span> Never provide credentials via email or unknown links</li>
+        <li><span class="check-icon green">✓</span> Report suspicious emails to security teams</li>
+        <li><span class="check-icon green">✓</span> Use password managers to detect fake login pages</li>
+      </ol>
+    </article>
+  </section>
+</div>
+
+<script src="/js/addTechnique.js"></script>
+<%- include('../includes/end.ejs') %>

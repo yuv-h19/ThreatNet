@@ -1,0 +1,120 @@
+<%- include('../includes/head.ejs') %>
+<link rel="stylesheet" href="/css/campaign-confirmation.css">
+</head>
+<body>
+<%- include('../includes/menu.ejs') %>
+
+<div class="success-page">
+
+<div id="points-popup" class="gamification-popup">
+  <div class="popup-content">
+    <span class="success-message">Saved Successfully!</span>
+        <span class="points-label">Thanks for your report.</span>
+  </div>
+</div>
+
+  <!-- Success Header -->
+  <section class="success-header">
+    <div class="success-icon">✔</div>
+
+    <h1>Campaign Reported Successfully</h1>
+
+    <p class="success-text">
+      Your contribution strengthens the global intelligence network.
+    </p>
+  </section>
+  <!-- What Happens Next Timeline -->
+<section class="timeline-section">
+
+  <h2><span class="icon">🧭</span> What Happens Next</h2>
+
+  <div class="timeline">
+
+    <div class="timeline-step step">
+      <div class="dot"></div>
+      <div class="content">
+        <h3>Report Received</h3>
+        <p>Your report has been securely indexed into the ThreatNet core database for community research.</p>
+      </div>
+    </div>
+
+    <div class="timeline-step step">
+      <div class="dot"></div>
+      <div class="content">
+        <h3>Automated Enrichment</h3>
+        <p>The system cross-references indicators with external OSINT sources to provide deeper contextual data.</p>
+      </div>
+    </div>
+
+    <div class="timeline-step step">
+      <div class="dot"></div>
+      <div class="content">
+        <h3>Peer Validation</h3>
+        <p>Your data is now visible to the analyst community for cross-verification and expert feedback.</p>
+      </div>
+    </div>
+
+    <div class="timeline-step step">
+      <div class="dot"></div>
+      <div class="content">
+        <h3>Adversary Mapping</h3>
+        <p>Indicators are automatically correlated with known APT actors and techniques.</p>
+      </div>
+    </div>
+
+    <div class="timeline-step step">
+      <div class="dot"></div>
+      <div class="content">
+        <h3>Community Awareness</h3>
+        <p>Your findings contribute to a shared, proactive understanding of current global threat activities.</p>
+      </div>
+    </div>
+
+  </div>
+  </section>
+
+  <section class="recent-campaigns">
+  <h2> <span class="icon">📄</span> Recently Reported Campaigns</h2>
+
+  <article class="campaign-item">
+    <div class="campaign-info">
+      <strong>Operation Dark Web</strong>
+      <span>Target: Finance</span>
+    </div>
+    <time datetime="2026-01-15">2026-01-15</time>
+  </article>
+
+  <article class="campaign-item">
+    <div class="campaign-info">
+      <strong>PhishNet Advanced</strong>
+      <span>Target: Healthcare</span>
+    </div>
+    <time datetime="2026-01-12">2026-01-12</time>
+  </article>
+
+  <article class="campaign-item">
+    <div class="campaign-info">
+      <strong>Ransomware Wave 2026</strong>
+      <span>Target: Manufacturing</span>
+    </div>
+    <time datetime="2026-01-10">2026-01-10</time>
+  </article>
+</section>
+
+<!-- Actions -->
+  <section class="success-actions">
+    <button class="secondary" onclick="window.location='/'">
+      Go to Dashboard
+    </button>
+    <button class="primary" onclick="window.location='https://yuvalho2.mtacloud.co.il/ThreatNet/Includes/report-campaign.html'">
+      Report Another Campaign
+    </button>
+  </section>
+
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="/js/addCampaign.js"></script>
+<script src="/js/addPoints.js"></script>
+<script src="/js/timeline.js"></script>
+<%- include('../includes/end.ejs') %>

@@ -1,0 +1,121 @@
+/* --- AUTHENTICATION LAYOUT CONTAINERS --- */
+.auth-container {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+.auth-header{
+  text-align: center;
+  margin-top: 40px;
+}
+
+
+/* Main form card */
+form {
+  max-width: 450px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 30px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-dim);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4), 0 0 12px 1px var(--cyber-glow);
+}
+
+.register-fr{
+  max-width: 800px;
+}
+
+/* --- FIELD STYLING & LABELS --- */
+label {
+  display: block;
+  margin-top: 18px;
+  margin-bottom: 6px;
+  font-weight: 700;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  font-size: 0.8rem;
+}
+
+label span { color: var(--status-critical); }
+
+input, select, textarea {
+  width: 100%;
+  padding: 12px 14px;
+  background-color: var(--bg-input); 
+  border: 1px solid var(--border-dim);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+
+input:focus, select:focus {
+  outline: none;
+  border-color: var(--cyber-cyan); 
+  box-shadow: 0 0 8px var(--cyber-glow);
+}
+
+/* --- GRID SYSTEM & HELPERS --- */
+.two-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.form-actions {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-top: 30px;
+  gap: 15px;
+}
+
+/* --- ACTION BUTTONS --- */
+button {
+  padding: 12px 26px;
+  border-radius: var(--radius-md);
+  font-size: 0.95rem;
+  cursor: pointer;
+  border: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.primary, .primary-btn {
+  background-color: var(--cyber-cyan-dark);
+  color: #ffffff;
+}
+
+.primary:hover, .primary-btn:hover {
+  background-color: var(--cyber-cyan);
+  box-shadow: 0 0 15px var(--cyber-glow);
+}
+
+.secondary, .secondary-btn {
+  background-color: rgba(255, 255, 255, 0.05);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-dim);
+}
+
+.secondary:hover, .secondary-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--text-primary);
+}
+
+/* Error Alert Styling */
+.err {
+  color: var(--status-high);
+  font-weight: bold;
+  display: block;
+  margin-top: 15px;
+  text-align: center;
+  font-family: var(--font-mono);
+}
+
+/* Mobile responsive fixes */
+@media (max-width: 768px) {
+  .two-columns { grid-template-columns: 1fr; gap: 10px; }
+  .form-actions { flex-direction: column; }
+}

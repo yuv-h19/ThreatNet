@@ -1,0 +1,71 @@
+<%- include('../includes/head.ejs') %>
+<link rel="stylesheet" href="/css/ioc-forms.css">
+</head>
+<body>
+<%- include('../includes/menu.ejs') %>
+
+<div class="container">
+  <section class="search-container">
+    <div class="search-box">
+      <h2 class="search-title">> SEARCH_IOC</h2>
+      
+      <form action="/search-ioc" method="POST" role="search">
+        <div class="form-group">
+          <label for="indicator_value">Indicator Search</label>
+          <div class="search-input-row">
+            <input type="text" name="indicator_value" id="indicator_value" 
+                   class="cyber-input"
+                   placeholder="Enter indicator (e.g. 1.2.3.4, badsite.com, SHA256 hash...)" 
+                   value="<%= searchValue %>" required>
+            <button type="submit" class="cyber-btn">SEARCH</button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <% if (results !== null) { %>
+      <div class="results-area">
+        <% if (results.length > 0) { %>
+          <h3 class="results-heading">>> Results Found:</h3>
+          <table class="results-table">
+            <thead>
+              <tr>
+                <th>Value</th>
+                <th>Type</th>
+                <th>Threat</th>
+                <th>Severity</th>
+                <th>Family</th>
+                <th>Community Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% for (let ioc of results) { %>
+                <tr>
+                  <td class="indicator-value"><%= ioc.indicator_value %></td>
+                  <td><%= ioc.indicator_type %></td>
+                  <td><%= ioc.threat_type %></td>
+                  <td>
+                    <span class="severity-badge <%= ioc.severity.toLowerCase() %>">
+                      <%= ioc.severity %>
+                    </span>
+                  </td>
+                  <td><%= ioc.threat_family %></td>
+                  <td><%= ioc.threat_description %></td>
+                </tr>
+              <% } %>
+            </tbody>
+          </table>
+        <% } else { %>
+          <div class="no-results-msg" role="alert">
+            [!] ALERT: No records found for "<strong><%= searchValue %></strong>". 
+            This indicator might be new to our environment.
+            <br><br>
+            <a href="/add-ioc" class="report-link">>> INITIATE NEW REPORT</a>
+          </div>
+        <% } %>
+      </div>
+    <% } %>
+  </section>
+</div>
+
+<%- include('../includes/end.ejs') %>

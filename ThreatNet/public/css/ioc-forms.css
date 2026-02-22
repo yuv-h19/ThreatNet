@@ -1,0 +1,137 @@
+/* Main container */
+.search-container, .report-container {
+    max-width: 900px;
+    margin: 2rem auto;
+}
+
+/* --- SEARCH & REPORT BOXES WITH CYBER GLOW --- */
+.search-box, .report-container {
+    background: var(--bg-card);
+    padding: 2rem;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-dim);
+    box-shadow: 
+        0 4px 20px rgba(0, 0, 0, 0.4),
+        0 0 12px 1px var(--cyber-glow);
+    margin-bottom: 2rem;
+}
+
+.search-title, .report-title {
+    color: var(--cyber-blue);
+    font-family: var(--font-mono);
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid var(--cyber-blue);
+    display: inline-block;
+    padding-bottom: 0.5rem;
+}
+
+/* --- RESULTS TABLE STYLING --- */
+.results-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--bg-header);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    color: var(--text-secondary);
+    margin-top: 1.5rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.results-table th {
+    background-color: var(--bg-card);
+    color: var(--cyber-blue);
+    padding: 1rem;
+    text-align: left;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+}
+
+.results-table td {
+    padding: 1rem;
+    border-bottom: 1px solid var(--border-dim);
+    font-size: 0.95rem;
+}
+
+.results-table tr:hover {
+    background-color: rgba(56, 189, 248, 0.05);
+}
+
+/* Severity Badges within the table */
+.severity-badge {
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.severity-badge.critical { background: rgba(239, 68, 68, 0.2); color: var(--status-critical); }
+.severity-badge.high { background: rgba(249, 115, 22, 0.2); color: var(--status-high); }
+.severity-badge.medium { background: rgba(234, 179, 8, 0.2); color: var(--status-medium); }
+.severity-badge.low { background: rgba(34, 197, 94, 0.2); color: var(--status-low); }
+
+/* --- FORM COMPONENTS --- */
+.form-row {
+    display: flex;
+    gap: 20px;
+}
+
+.form-row .form-group {
+    flex: 1;
+}
+
+.form-group { margin-bottom: 20px; }
+
+.form-group label {
+    display: block;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+/* Alert box for empty search results */
+.no-results-msg {
+    background-color: rgba(127, 29, 29, 0.4);
+    color: #fca5a5;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid #b91c1c;
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.report-link {
+    color: var(--cyber-blue);
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+/* --- SEARCH INPUT ROW --- */
+.search-input-row {
+    display: flex;
+    gap: 10px;
+}
+
+.search-input-row .cyber-input {
+    flex: 1;
+}
+
+.search-input-row .cyber-btn {
+    margin-top: 0;
+    width: auto;
+    padding: 0 2rem;
+}
+
+/* --- RESULTS AREA --- */
+.results-heading {
+    color: var(--cyber-blue);
+    margin-bottom: 1rem;
+}
+
+.indicator-value {
+    color: var(--cyber-blue);
+    font-family: var(--font-mono);
+}
